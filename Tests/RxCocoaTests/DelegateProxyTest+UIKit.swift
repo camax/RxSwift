@@ -94,8 +94,8 @@ extension DelegateProxyTest {
 
 #if os(iOS)
 extension DelegateProxyTest {
-    func test_UIWebViewDelegateExtension() {
-        performDelegateTest(UIWebViewSubclass(frame: CGRect.zero)) { ExtendWebViewDelegateProxy(webViewSubclass: $0) }
+    func test_WKWebViewDelegateExtension() {
+        performDelegateTest(WKWebViewSubclass(frame: CGRect.zero)) { ExtendWebViewDelegateProxy(webViewSubclass: $0) }
     }
 }
 #endif
@@ -462,21 +462,21 @@ final class UIPickerViewSubclass2: UIPickerView, TestDelegateControl {
 final class ExtendWebViewDelegateProxy
     : RxWebViewDelegateProxy
     , TestDelegateProtocol {
-    init(webViewSubclass: UIWebViewSubclass) {
+    init(webViewSubclass: WKWebViewSubclass) {
         super.init(webView: webViewSubclass)
     }
 }
 
-final class UIWebViewSubclass: UIWebView, TestDelegateControl {
+final class WKWebViewSubclass: WKWebView, TestDelegateControl {
     func doThatTest(_ value: Int) {
         (delegate as! TestDelegateProtocol).testEventHappened?(value)
     }
 
-    var delegateProxy: DelegateProxy<UIWebView, UIWebViewDelegate> {
+    var delegateProxy: DelegateProxy<WKWebView, WKWebViewDelegate> {
         return self.rx.delegate
     }
 
-    func setMineForwardDelegate(_ testDelegate: UIWebViewDelegate) -> Disposable {
+    func setMineForwardDelegate(_ testDelegate: WKWebViewDelegate) -> Disposable {
         return RxWebViewDelegateProxy.installForwardDelegate(testDelegate,
                                                              retainDelegate: false,
                                                              onProxyForObject: self)

@@ -405,7 +405,7 @@ If you're using Xcode 10.1 and below, please use [RxSwift 4.5](https://github.co
 * Fixes a couple of operators that were not cleaning up resources on terminal events when used without `DisposeBag`s.
 * Fixes delegate proxy interaction with subclassing of `UISearchController`.
 * Fixes delegate proxy interaction with subclassing of `NSTextStorage`.
-* Fixes delegate proxy interaction with subclassing of `UIWebView`.
+* Fixes delegate proxy interaction with subclassing of `WKWebView`.
 * Fixes delegate proxy interaction with subclassing of `UIPickerView`.
 
 ## [3.1.0](https://github.com/ReactiveX/RxSwift/releases/tag/3.1.0) (Xcode 8 / Swift 3.0 compatible)
@@ -423,7 +423,7 @@ If you're using Xcode 10.1 and below, please use [RxSwift 4.5](https://github.co
     * `didEndDragging`
     * `didScrollToTop`
 * Renames `refreshing` to `isRefreshing`.
-* adds `UIWebView` extensions:
+* adds `WKWebView` extensions:
     * `didStartLoad`
     * `didFinishLoad`
     * `didFailLoad`

@@ -11,17 +11,17 @@
 import UIKit
 import RxSwift
 
-extension UIWebView: HasDelegate {
-    public typealias Delegate = UIWebViewDelegate
+extension WKWebView: HasDelegate {
+    public typealias Delegate = WKWebViewDelegate
 }
 
 open class RxWebViewDelegateProxy
-    : DelegateProxy<UIWebView, UIWebViewDelegate>
+    : DelegateProxy<WKWebView, WKWebViewDelegate>
     , DelegateProxyType 
-    , UIWebViewDelegate {
+    , WKWebViewDelegate {
 
     /// Typed parent object.
-    public weak private(set) var webView: UIWebView?
+    public weak private(set) var webView: WKWebView?
 
     /// - parameter webView: Parent object for delegate proxy.
     public init(webView: ParentObject) {

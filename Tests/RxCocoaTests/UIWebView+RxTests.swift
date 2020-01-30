@@ -1,5 +1,5 @@
 //
-//  UIWebView+RxTests.swift
+//  WKWebView+RxTests.swift
 //  Tests
 //
 //  Created by Andrew Breckenridge on 8/30/16.
@@ -14,14 +14,14 @@ import RxCocoa
 import RxBlocking
 import XCTest
 
-final class UIWebViewTests: RxTest {}
+final class WKWebViewTests: RxTest {}
 
 fileprivate let testHTMLString = "<html><head></head><body><h1>🔥</h1></body></html>"
     
-extension UIWebViewTests {
+extension WKWebViewTests {
         
     func testDidStartLoad() {
-        let webView = UIWebView()
+        let webView = WKWebView()
         var didStartLoad = false
 
         let subscription = webView.rx.didStartLoad.subscribe(onNext: { _ in
@@ -35,7 +35,7 @@ extension UIWebViewTests {
     }
     
     func testDidFinishLoad() {
-        let webView = UIWebView()
+        let webView = WKWebView()
         var didFinishLoad = false
 
         let subscription = webView.rx.didFinishLoad.subscribe(onNext: { _ in
@@ -49,7 +49,7 @@ extension UIWebViewTests {
     }
 
     func testDidFailLoad() {
-        let webView = UIWebView()
+        let webView = WKWebView()
         var didFailLoad = false
 
         let subscription = webView.rx.didFailLoad.subscribe { _ in
